@@ -1,19 +1,17 @@
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual Environment
+*.pyc
 .venv/
-venv/
 
 # Environment Variables
 .env
-backend/.env
+.env.*
+
+!.env.example
 
 # VS Code
 .vscode/
 
-# Windows & macOS
+# OS Files
 .DS_Store
 Thumbs.db
