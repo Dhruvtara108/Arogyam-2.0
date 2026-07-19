@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from backend.app.models.emergency import EmergencyRequest
 
 app = FastAPI(
     title="Arogyam 2.0 API",
@@ -19,4 +20,11 @@ def home():
 def health():
     return {
         "status": "Healthy"
+    }
+
+
+@app.post("/emergency")
+def emergency(request: EmergencyRequest):
+    return {
+        "message": f"Emergency received for {request.patient_name}"
     }
