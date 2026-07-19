@@ -8,7 +8,7 @@ from telegram.ext import (
     filters,
 )
 
-from handlers import start, handle_message
+from handlers import start, handle_message, handle_photo
 
 # Load environment variables
 load_dotenv("telegram-bot/.env")
@@ -28,6 +28,10 @@ def main():
     # Handle button clicks / text messages
     app.add_handler(
         MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)
+    )
+    # Handle uploaded photos
+    app.add_handler(
+        MessageHandler(filters.PHOTO, handle_photo)
     )
 
     print("🚀 Arogyam Telegram Bot is running...")
