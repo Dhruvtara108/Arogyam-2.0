@@ -1,30 +1,34 @@
 import os
 from dotenv import load_dotenv
 
-from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
-    ContextTypes,
+    MessageHandler,
+    filters,
 )
+
+from handlers import start, handle_message
 
 # Load environment variables
 load_dotenv("telegram-bot/.env")
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "🚑 Welcome to Arogyam 2.0!\n\n"
-        "Your AI Emergency Response Assistant is now online."
-    )
+if BOT_TOKEN is None:
+    raise ValueError("BOT_TOKEN not found. Check your .env file.")
 
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
+    # Commands
     app.add_handler(CommandHandler("start", start))
+
+    # Handle button clicks / text messages
+    app.add_handler(
+        MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message)
+    )
 
     print("🚀 Arogyam Telegram Bot is running...")
 
