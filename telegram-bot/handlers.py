@@ -1,4 +1,5 @@
 import os
+import requests
 
 from telegram import Update
 from telegram.ext import ContextTypes
@@ -45,6 +46,23 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await file.download_to_drive(file_path)
 
+    url = "http://127.0.0.1:8000/analyze-image"
+
+    with open(file_path, "rb") as image_file:
+        response = requests.post(
+            url,
+            files={"file": image_file}
+        )
+
+    result = response.json()
+
     await update.message.reply_text(
-        "✅ Image received successfully."
+        f"""🩺 Injury Analysis
+
+Possible Injury: {result['injury']}
+Risk Level: {result['risk']}
+
+Recommendation:
+{result['recommendation']}
+"""
     )
