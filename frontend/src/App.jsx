@@ -1,7 +1,5 @@
 import EmergencyDashboard from "./pages/EmergencyDashboard";
 
-function App() {
+export default function App() {
   return <EmergencyDashboard />;
 }
-
-export default App;

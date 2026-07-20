@@ -1,6 +1,6 @@
-from backend.app.services.hospital_service import get_best_hospital
-from backend.app.services.ambulance_service import get_best_ambulance
-from backend.app.services.doctor_service import get_available_doctor
+from app.services.hospital_service import get_best_hospital
+from app.services.ambulance_service import get_best_ambulance
+from app.services.doctor_service import get_available_doctor
 
 
 def dispatch_emergency():

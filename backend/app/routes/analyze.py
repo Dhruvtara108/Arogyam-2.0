@@ -1,8 +1,8 @@
 from fastapi import APIRouter, UploadFile, File
 
-from backend.app.services.dispatch_service import dispatch_emergency
-from backend.app.services.mock_ai_service import analyze_injury
-from backend.app.services.notification_service import (
+from app.services.dispatch_service import dispatch_emergency
+from app.services.mock_ai_service import analyze_injury
+from app.services.notification_service import (
     notify_hospital,
     notify_ambulance
 )
