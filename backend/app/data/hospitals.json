@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Apollo Hospital",
+    "distance_km": 2.1,
+    "doctor_available": true,
+    "available_beds": 4,
+    "specialization": "Trauma"
+  },
+  {
+    "id": 2,
+    "name": "City Care Hospital",
+    "distance_km": 5.6,
+    "doctor_available": false,
+    "available_beds": 1,
+    "specialization": "General"
+  },
+  {
+    "id": 3,
+    "name": "AIIMS Emergency Center",
+    "distance_km": 3.4,
+    "doctor_available": true,
+    "available_beds": 2,
+    "specialization": "Emergency"
+  }
+]

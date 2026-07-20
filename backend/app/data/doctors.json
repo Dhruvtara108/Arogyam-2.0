@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah",
+    "hospital_id": 1,
+    "specialization": "Trauma",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Dr. James",
+    "hospital_id": 2,
+    "specialization": "General",
+    "available": false
+  },
+  {
+    "id": 3,
+    "name": "Dr. Emily",
+    "hospital_id": 3,
+    "specialization": "Emergency",
+    "available": true
+  }
+]

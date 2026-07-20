@@ -1,0 +1,23 @@
+[
+  {
+    "id": "AMB-101",
+    "driver": "Rahul",
+    "available": true,
+    "distance_km": 1.8,
+    "eta_min": 4
+  },
+  {
+    "id": "AMB-102",
+    "driver": "Amit",
+    "available": false,
+    "distance_km": 0.9,
+    "eta_min": 0
+  },
+  {
+    "id": "AMB-103",
+    "driver": "Vikram",
+    "available": true,
+    "distance_km": 3.5,
+    "eta_min": 8
+  }
+]

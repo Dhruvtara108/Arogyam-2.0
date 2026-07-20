@@ -56,13 +56,42 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     result = response.json()
 
-    await update.message.reply_text(
-        f"""🩺 Injury Analysis
+    if result["needs_ambulance"]:
 
-Possible Injury: {result['injury']}
-Risk Level: {result['risk']}
+        hospital = result["hospital"]
+        doctor = result["doctor"]
+        ambulance = result["ambulance"]
 
-Recommendation:
-{result['recommendation']}
-"""
-    )
+        message = (
+            "🚨 EMERGENCY DETECTED\n\n"
+            f"🩺 Injury: {result['injury']}\n"
+            f"⚠️ Severity: {result['severity']}\n\n"
+            "🏥 Hospital\n"
+            f"{hospital['name']}\n"
+            f"📍 Distance: {hospital['distance_km']} km\n\n"
+            "👨‍⚕️ Doctor\n"
+            f"{doctor['name']}\n\n"
+            "🚑 Ambulance\n"
+            f"{ambulance['id']}\n"
+            f"👤 Driver: {ambulance['driver']}\n"
+            f"⏱ ETA: {ambulance['eta_min']} minutes\n\n"
+            "✅ Hospital Notified\n"
+            "✅ Doctor Alerted\n"
+            "✅ Ambulance Dispatched"
+        )
+
+    else:
+
+        first_aid = "\n".join(
+            f"• {step}" for step in result["first_aid"]
+        )
+
+        message = (
+            "🩺 Injury Analysis\n\n"
+            f"Injury: {result['injury']}\n"
+            f"Severity: {result['severity']}\n\n"
+            "🩹 First Aid\n"
+            f"{first_aid}"
+        )
+
+    await update.message.reply_text(message)
