@@ -21,7 +21,7 @@
 
 <br/>
 
-<img src="./docs/assets/animated-banner.svg" alt="Arogyam AI Animated Banner" width="100%"/>
+<img src="./docs/assets/banner.svg" alt="Arogyam AI Banner" width="100%"/>
 
 <br/>
 

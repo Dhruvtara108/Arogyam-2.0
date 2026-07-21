@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A">
+        <animate attributeName="stop-color"
+          values="#0F172A; #4A90D9; #8E75B2; #0F172A"
+          dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#4A90D9">
+        <animate attributeName="stop-color"
+          values="#4A90D9; #8E75B2; #0F172A; #4A90D9"
+          dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#8E75B2">
+        <animate attributeName="stop-color"
+          values="#8E75B2; #0F172A; #4A90D9; #8E75B2"
+          dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="160" rx="16" fill="url(#bgGradient)" />
+
+  <!-- floating pulse dot, like a heartbeat monitor -->
+  <circle cx="60" cy="80" r="6" fill="#ffffff" opacity="0.9">
+    <animate attributeName="r" values="6;10;6" dur="1.6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- heartbeat line -->
+  <polyline points="90,80 130,80 145,50 160,110 175,80 210,80"
+    fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite" />
+  </polyline>
+
+  <!-- title text with fade-in -->
+  <text x="250" y="70" font-family="Verdana, sans-serif" font-size="34" font-weight="bold" fill="#ffffff">
+    🩺 Arogyam AI
+    <animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze" />
+  </text>
+
+  <text x="250" y="105" font-family="Verdana, sans-serif" font-size="15" fill="#e2e8f0" opacity="0">
+    Turning a photo into a life-saving decision — in seconds.
+    <animate attributeName="opacity" values="0;0;1" dur="2.4s" fill="freeze" />
+  </text>
+
+  <!-- moving accent bar -->
+  <rect x="250" y="120" width="0" height="4" rx="2" fill="#ffffff" opacity="0.8">
+    <animate attributeName="width" values="0;420;420" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.8;0.8;0" dur="2.5s" repeatCount="indefinite" />
+  </rect>
+</svg>
