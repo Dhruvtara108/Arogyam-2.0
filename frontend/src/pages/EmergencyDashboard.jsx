@@ -101,12 +101,16 @@ const EmergencyDashboard = () => {
 
             <div>
               <h2 className="text-2xl font-bold">
-                🚨 Critical Emergency
-              </h2>
+  {data.severity === "Critical"
+    ? "🚨 Critical Emergency"
+    : "🩹 Low Priority Emergency"}
+</h2>
 
               <p className="text-red-200/70">
-                AI Dispatch System Active
-              </p>
+  {data.needs_ambulance
+    ? "AI Dispatch System Active"
+    : "First Aid Recommendation Generated"}
+</p>
             </div>
           </div>
         </motion.div>
@@ -134,50 +138,53 @@ const EmergencyDashboard = () => {
 
             <div className="space-y-5">
 
-              <div className="rounded-xl bg-slate-950 p-4">
-                <p className="text-sm text-gray-400">
-                  Priority
-                </p>
+  <div className="rounded-xl bg-slate-950 p-4">
+    <p className="text-sm text-gray-400">
+      Priority
+    </p>
 
-                <h3 className="text-3xl font-black text-red-500">
-                  CRITICAL
-                </h3>
-              </div>
+    <h3
+      className={`text-3xl font-black ${
+        data.priority === "CRITICAL"
+          ? "text-red-500"
+          : "text-emerald-400"
+      }`}
+    >
+      {data.priority}
+    </h3>
+  </div>
 
-              <div className="rounded-xl bg-slate-950 p-4">
-                <p className="text-sm text-gray-400">
-                  Confidence
-                </p>
+  <div className="rounded-xl bg-slate-950 p-4">
+    <p className="text-sm text-gray-400">
+      Confidence
+    </p>
 
-                <h3 className="text-2xl font-bold text-cyan-400">
-                  98.2%
-                </h3>
-              </div>
+    <h3 className="text-2xl font-bold text-cyan-400">
+      {data.confidence}%
+    </h3>
+  </div>
 
-              <div className="rounded-xl bg-slate-950 p-4">
-                <p className="text-sm text-gray-400">
-                  ETA
-                </p>
+  <div className="rounded-xl bg-slate-950 p-4">
+    <p className="text-sm text-gray-400">
+      ETA
+    </p>
 
-                <h3 className="text-2xl font-bold">
-                  4 Minutes
-                </h3>
-              </div>
+    <h3 className="text-2xl font-bold">
+      {data.eta}
+    </h3>
+  </div>
 
-              <div className="rounded-xl bg-slate-950 p-4">
-                <p className="text-sm text-gray-400 mb-2">
-                  AI Reasoning
-                </p>
+  <div className="rounded-xl bg-slate-950 p-4">
+    <p className="text-sm text-gray-400 mb-2">
+      AI Reasoning
+    </p>
 
-                <p className="text-sm text-gray-300">
-                  Selected nearest ambulance,
-                  optimized traffic route,
-                  alerted trauma center and
-                  assigned emergency specialist.
-                </p>
-              </div>
+    <p className="text-sm text-gray-300">
+      {data.reasoning}
+    </p>
+  </div>
 
-            </div>
+</div>
           </motion.div>
 
         </div>
